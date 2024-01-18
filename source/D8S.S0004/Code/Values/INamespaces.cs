@@ -19,12 +19,12 @@ namespace D8S.S0004
 
         public NamespaceDeclarationSyntax D8S_S0004_Program_Main => Instances.SyntaxGenerator.Build(
             this.D8S_S0004_Empty,
-            Instances.NamespaceDeclarationOperations.Add_Class(
+            Instances.NamespaceDeclarationOperations_F001.Add_Class(
                 Instances.ClassDeclarations.Program));
 
         public NamespaceDeclarationSyntax D8S_S0004_Program_Main_Asynchronous => Instances.SyntaxGenerator.Build(
             this.D8S_S0004_Empty,
-            Instances.NamespaceDeclarationOperations.Add_Class(
+            Instances.NamespaceDeclarationOperations_F001.Add_Class(
                 Instances.ClassDeclarations.Program_Asynchronous));
     }
 }

@@ -1,7 +1,7 @@
 using System;
 
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-
+using R5T.L0073.T002;
 using R5T.T0131;
 
 
@@ -14,41 +14,41 @@ namespace D8S.S0004
             //Instances.CompilationUnitOperations.Add_UsingDirective(
             //    Instances.UsingDirectives.System
             //),
-            Instances.CompilationUnitOperations.Add_Namespace(
+            Instances.CompilationUnitOperations.Add_Namespace<ICompilationUnitContext>(
                 Instances.NamespaceNames_Strings.D8S_S0004,
-                Instances.NamespaceDeclarationOperations.Add_Class(
+                Instances.NamespaceDeclarationOperations.Add_Class<INamespaceDeclarationContext>(
                     Instances.ClassNames_Strings.Program,
-                    //Instances.ClassDeclarationOperations.Add_Method(
-                    //    Instances.Types.Task,
-                    //    Instances.MethodNames_Strings.Main,
-                    //    (methodDeclaration, _) =>
-                    //    {
-                    //        return Instances.SyntaxGenerator.Build(
-                    //            methodDeclaration,
-                    //            Instances.MemberDeclarationOperations.In_ModifyModifiersContext<MethodDeclarationSyntax>(
-                    //                Instances.ModifiersOperations.Add_Static,
-                    //                Instances.ModifiersOperations.Add_Async),
-                    //            Instances.MethodDeclarationOperations.Set_ReturnTypeSeparatingSpacing_Space);
-                    //    },
-                    //    (methodDeclaration, _) =>
-                    //    {
-                    //        return Instances.SyntaxGenerator.Build(
-                    //            methodDeclaration,
-                    //            Instances.MethodDeclarationOperations.Add_Statement(
-                    //                Instances.ExpressionStatements.Console_WriteLine_HelloWorld
-                    //            )
-                    //        );
-                    //    },
-                    //    (methodDeclaration, context) =>
-                    //    {
-                    //        context.CompilationUnit = Instances.CompilationUnitOperator._Platform.Add_UsingDirective(
-                    //            context.CompilationUnit,
-                    //            Instances.UsingDirectives.System_Threading_Tasks);
+                    ////Instances.ClassDeclarationOperations.Add_Method(
+                    ////    Instances.Types.Task,
+                    ////    Instances.MethodNames_Strings.Main,
+                    ////    (methodDeclaration, _) =>
+                    ////    {
+                    ////        return Instances.SyntaxGenerator.Build(
+                    ////            methodDeclaration,
+                    ////            Instances.MemberDeclarationOperations.In_ModifyModifiersContext<MethodDeclarationSyntax>(
+                    ////                Instances.ModifiersOperations.Add_Static,
+                    ////                Instances.ModifiersOperations.Add_Async),
+                    ////            Instances.MethodDeclarationOperations.Set_ReturnTypeSeparatingSpacing_Space);
+                    ////    },
+                    ////    (methodDeclaration, _) =>
+                    ////    {
+                    ////        return Instances.SyntaxGenerator.Build(
+                    ////            methodDeclaration,
+                    ////            Instances.MethodDeclarationOperations.Add_Statement(
+                    ////                Instances.ExpressionStatements.Console_WriteLine_HelloWorld
+                    ////            )
+                    ////        );
+                    ////    },
+                    ////    (methodDeclaration, context) =>
+                    ////    {
+                    ////        context.CompilationUnit = Instances.CompilationUnitOperator._Platform.Add_UsingDirective(
+                    ////            context.CompilationUnit,
+                    ////            Instances.UsingDirectives.System_Threading_Tasks);
 
-                    //        return methodDeclaration;
-                    //    }
-                    //)
-                    Instances.ClassDeclarationOperations.Add_Main_Asynchonrous
+                    ////        return methodDeclaration;
+                    ////    }
+                    ////)
+                    Instances.ClassDeclarationOperations.Add_Main_Asynchronous
                 )
             )
         );

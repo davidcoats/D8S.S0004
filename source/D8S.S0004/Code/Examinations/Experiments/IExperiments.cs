@@ -71,11 +71,10 @@ namespace D8S.S0004
             static SyntaxNode Internal()
             {
                 var output =
-                    Instances.SyntaxGenerator._Raw.VariableDeclaration(
-                        "builder",
-                        Instances.Expressions.WebApplication_CreateBuilder_Args)
+                    //Instances.Statements.app_Run
+                    //Instances.LocalDeclarationStatements.builder_WebApplication_CreateBuilder
                     //Instances.SyntaxGenerator._Raw.VariableDeclaration()
-                    //Instances.CompilationUnits.D8S_S0004_Program_Main_Asynchronous
+                    Instances.CompilationUnits.D8S_S0004_Program_Main_Asynchronous
                     //Instances.Namespaces.D8S_S0004_Program_Main_Asynchronous
                     //Instances.MethodDeclarations.Main_Asynchronous_Empty
                     //Instances.CompilationUnitOperator._Platform.In_NewContext(
