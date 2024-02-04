@@ -20,9 +20,10 @@ namespace D8S.S0004
             //Experiments.Instance.NodeTokensContainTrailingTrivia();
             //Experiments.Instance.DoesReplaceTokensSkipNotFoundTokens();
             //Experiments.Instance.DoesCompilationUnitContainALastNoneToken();
-            await Experiments.Instance.Build_SyntaxElement();
+            //await Experiments.Instance.Build_SyntaxElement();
             //await Experiments.Instance.Try_SetSeparatingSpacing();
             //await Experiments.Instance.Try_Indentation();
+            await Experiments.Instance.UseContextOperationsToBuildProgramFile();
         }
     }
 }

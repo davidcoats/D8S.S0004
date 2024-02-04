@@ -8,7 +8,8 @@ using R5T.T0131;
 namespace D8S.S0004
 {
     [ValuesMarker]
-    public partial interface IExpressionStatements : IValuesMarker
+    public partial interface IExpressionStatements : IValuesMarker,
+        R5T.L0073.IExpressionStatements
     {
 #pragma warning disable IDE1006 // Naming Styles
 

@@ -8,7 +8,9 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 using R5T.L0073.F001;
+using R5T.L0073.T001;
 using R5T.T0141;
+using R5T.T0221;
 
 
 namespace D8S.S0004
@@ -16,6 +18,107 @@ namespace D8S.S0004
     [ExperimentsMarker]
     public partial interface IExperiments : IExperimentsMarker
     {
+        /// <summary>
+        /// Using the new (20240201) understanding of contexts, use context operations to build a program file.
+        /// </summary>
+        /// <returns></returns>
+        public async Task UseContextOperationsToBuildProgramFile()
+        {
+            /// Inputs.
+            var codeFilePath =
+                Instances.FilePaths.Sample_CSharpFilePath.Value
+                ;
+            var namespaceName =
+                Instances.NamespaceNames_Strings.D8S_S0004
+                ;
+            var className =
+                Instances.ClassNames_Strings.Program
+                ;
+
+
+            /// Run.
+            await Instances.CodeFileOperator.In_CodeFileContext(
+                codeFilePath,
+                out _,
+                //Instances.ContextOperations.DisplayContext_AtDesignTime_ForAsynchronous<CodeFileContext>(),
+                Instances.CompilationUnitContextOperations.Set_CompilationUnit_ToNewEmpty,
+                Instances.CompilationUnitContextOperations.Add_UsingNamespace<CodeFileContext>(
+                    Instances.NamespaceNames_Strings.System,
+                    out var usingSystemNamespace
+                ),
+                Instances.CompilationUnitContextOperations.In_NamespaceDeclarationContext<CodeFileContext>(
+                    out _,
+                    //Instances.ContextOperations.DisplayContext_AtDesignTime_ForAsynchronous<NamespaceDeclarationContext>(),
+                    Instances.NamespaceDeclarationContextOperations.Set_NamespaceDeclaration_ToNewEmpty<NamespaceDeclarationContext>(
+                        namespaceName,
+                        out _
+                    ),
+                    Instances.NamespaceDeclarationContextOperations.In_ClassDeclarationContext<NamespaceDeclarationContext>(
+                        out _,
+                        Instances.ClassDeclarationContextOperations.Set_ClassDeclaration_New<ClassDeclarationContext>(
+                            className,
+                            out var classDeclarationSet
+                        ),
+                        Instances.ClassDeclarationContextOperations.Modify_Modifiers<ClassDeclarationContext>(
+                            classDeclarationSet,
+                            _ =>
+                            {
+                                var modifiersDescriptor = new ModifiersDescriptor
+                                {
+                                    Accessibility = MemberAccessibilityLevel.Public,
+                                };
+
+                                var output = Instances.ModifiersOperator.Get_ModifiersTokenList(modifiersDescriptor);
+                                return output;
+                            }
+                        ),
+                        // Add a method.
+                        Instances.ClassDeclarationContextOperations.In_MethodDeclarationContext<ClassDeclarationContext>(
+                            out _,
+                            //out var propertiesSet, // Results in CS8196, "Reference to an implicitly-typed out variable 'propertiesSet' is not permitted in the same argument list." error below.
+                            //Instances.EnumerableOperator.From( // Does not resolve the CS8196 'propertiesSet' error, since still in the same arguments list.
+                            Instances.MethodDeclarationContextOperations.Set_MethodDeclaration_New<MethodDeclarationContext>(
+                                Instances.MethodNames_Strings.Main,
+                                Instances.Types.Void,
+                                out IsSet<IHasMethodDeclaration> methodDeclarationSet),
+                            Instances.MethodDeclarationContextOperations.Modify_Modifiers<MethodDeclarationContext>(
+                                methodDeclarationSet,
+                                _ =>
+                                {
+                                    var modifiersDescriptor = new ModifiersDescriptor
+                                    {
+                                        Accessibility = MemberAccessibilityLevel.Public,
+                                        Is_Static = true,
+                                    };
+
+                                    var output = Instances.ModifiersOperator.Get_ModifiersTokenList(modifiersDescriptor);
+                                    return output;
+                                }
+                            ),
+                            Instances.MethodDeclarationContextOperations.In_StatementDeclarationContext<MethodDeclarationContext>(
+                                out _,
+                                Instances.StatementContextOperations.Set_Statement<StatementContext>(
+                                    Instances.Statements.Console_WriteLine_HelloWorld,
+                                    out _),
+                                Instances.StatementContextOperations.Add_Statement_ToMethodDeclaration
+                            ),
+                            Instances.MethodDeclarationContextOperations.Add_MethodDeclaration_ToClassDeclaration
+                        ),
+                        // Do this last so the class declaraion syntax object is finished.
+                        Instances.ClassDeclarationContextOperations.Add_ClassDeclaration_ToNamespaceDeclaration
+                    ),
+                    // Do this last so the namespace declaration syntax object is finished.
+                    Instances.NamespaceDeclarationContextOperations.Add_NamespaceDeclaration_ToCompilationUnit
+                ),
+                // Need to write out the compilation unit to the code file path.
+                Instances.CodeFileContextOperations.Write_CompilationUnit_ToFilePath<CodeFileContext>(
+                    out _
+                )
+            );
+
+            Instances.NotepadPlusPlusOperator.Open(codeFilePath);
+        }
+
         /// <summary>
         /// Indentation of code blocks is the way to add members to members.
         /// </summary>

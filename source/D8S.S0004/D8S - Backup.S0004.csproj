@@ -24,4 +24,7 @@
     <ProjectReference Include="..\..\..\..\SafetyCone\R5T.T0244\source\R5T.T0244\R5T.T0244.csproj" />
     <ProjectReference Include="..\..\..\..\SafetyCone\R5T.L0093\source\R5T.L0093\R5T.L0093.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Code\_Types\Contexts\" />
+  </ItemGroup>
 </Project>
