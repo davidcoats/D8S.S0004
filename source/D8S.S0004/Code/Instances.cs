@@ -11,6 +11,7 @@ namespace D8S.S0004
         public static R5T.L0073.F001.IClassDeclarationOperator ClassDeclarationOperator => R5T.L0073.F001.ClassDeclarationOperator.Instance;
         public static R5T.L0073.Z001.IClassDeclarations ClassDeclarations => R5T.L0073.Z001.ClassDeclarations.Instance;
         public static R5T.L0073.Z001.Strings.IClassNames ClassNames_Strings => R5T.L0073.Z001.Strings.ClassNames.Instance;
+        public static ICodeFileContextOperationSetOperator CodeFileContextOperationSetOperator => S0004.CodeFileContextOperationSetOperator.Instance;
         public static ICodeFileContextOperations CodeFileContextOperations => S0004.CodeFileContextOperations.Instance;
         public static ICodeFileOperator CodeFileOperator => S0004.CodeFileOperator.Instance;
         public static ICodeFilePaths CodeFilePaths => S0004.CodeFilePaths.Instance;

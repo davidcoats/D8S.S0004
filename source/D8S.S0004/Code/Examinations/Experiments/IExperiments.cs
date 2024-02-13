@@ -9,6 +9,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 using R5T.L0073.F001;
 using R5T.L0073.T001;
+using R5T.L0073.T003;
 using R5T.T0141;
 using R5T.T0221;
 
@@ -18,6 +19,34 @@ namespace D8S.S0004
     [ExperimentsMarker]
     public partial interface IExperiments : IExperimentsMarker
     {
+        /// <summary>
+        /// Using the new context operation sets, use context operations to build a program file.
+        /// </summary>
+        /// <returns></returns>
+        public async Task UseContextOperationSetToBuildProgramFile()
+        {
+            /// Inputs.
+            var codeFilePath =
+                Instances.FilePaths.Sample_CSharpFilePath.Value
+                ;
+            var namespaceName =
+                Instances.NamespaceNames_Strings.D8S_S0004
+                ;
+
+
+            /// Run.
+            var codeFileContextOperations = Instances.CodeFileContextOperationSetOperator.Generate_ProgramFile<CodeFileContext>(
+                namespaceName);
+
+            await Instances.CodeFileOperator.In_CodeFileContext(
+                codeFilePath,
+                out _,
+                codeFileContextOperations
+            );
+
+            Instances.NotepadPlusPlusOperator.Open(codeFilePath);
+        }
+
         /// <summary>
         /// Using the new (20240201) understanding of contexts, use context operations to build a program file.
         /// </summary>

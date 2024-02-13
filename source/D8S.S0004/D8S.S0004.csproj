@@ -23,5 +23,7 @@
     <ProjectReference Include="..\..\..\..\SafetyCone\R5T.L0091\source\R5T.L0091.T000\R5T.L0091.T000.csproj" />
     <ProjectReference Include="..\..\..\..\SafetyCone\R5T.T0244\source\R5T.T0244\R5T.T0244.csproj" />
     <ProjectReference Include="..\..\..\..\SafetyCone\R5T.L0093\source\R5T.L0093\R5T.L0093.csproj" />
+    <ProjectReference Include="..\D8S.S0004.O001\D8S.S0004.O001.csproj" />
+    <ProjectReference Include="..\..\..\..\SafetyCone\R5T.O0032\source\R5T.O0032.O001\R5T.O0032.O001.csproj" />
   </ItemGroup>
 </Project>

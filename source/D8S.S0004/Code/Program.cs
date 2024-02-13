@@ -23,7 +23,8 @@ namespace D8S.S0004
             //await Experiments.Instance.Build_SyntaxElement();
             //await Experiments.Instance.Try_SetSeparatingSpacing();
             //await Experiments.Instance.Try_Indentation();
-            await Experiments.Instance.UseContextOperationsToBuildProgramFile();
+            //await Experiments.Instance.UseContextOperationsToBuildProgramFile();
+            await Experiments.Instance.UseContextOperationSetToBuildProgramFile();
         }
     }
 }
