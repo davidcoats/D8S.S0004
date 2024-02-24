@@ -63,5 +63,31 @@ namespace D8S.S0004
 
             return codeFilePath;
         }
+
+        public async Task<ICodeFilePath> In_OutputToSampleCodeFileContext_WithoutOpenInNotepadPlusPlus(
+            Func<SyntaxTrivia> syntaxTriviaGenerator)
+        {
+            var syntaxToken = syntaxTriviaGenerator();
+
+            var codeFilePath = Instances.FilePaths.Sample_CSharpFilePath;
+
+            await Instances.SyntaxOperator.Write_ToFile(
+                syntaxToken,
+                codeFilePath);
+
+            return codeFilePath;
+        }
+
+        public async Task<ICodeFilePath> In_OutputToSampleCodeFileContext(
+            Func<SyntaxTrivia> syntaxTriviaGenerator)
+        {
+            var codeFilePath = await this.In_OutputToSampleCodeFileContext_WithoutOpenInNotepadPlusPlus(
+                syntaxTriviaGenerator);
+
+            Instances.NotepadPlusPlusOperator.Open(
+                codeFilePath);
+
+            return codeFilePath;
+        }
     }
 }

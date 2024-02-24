@@ -11,8 +11,9 @@ namespace D8S.S0004
         public static R5T.L0073.F001.IClassDeclarationOperator ClassDeclarationOperator => R5T.L0073.F001.ClassDeclarationOperator.Instance;
         public static R5T.L0073.Z001.IClassDeclarations ClassDeclarations => R5T.L0073.Z001.ClassDeclarations.Instance;
         public static R5T.L0073.Z001.Strings.IClassNames ClassNames_Strings => R5T.L0073.Z001.Strings.ClassNames.Instance;
-        public static ICodeFileContextOperationSetOperator CodeFileContextOperationSetOperator => S0004.CodeFileContextOperationSetOperator.Instance;
         public static ICodeFileContextOperations CodeFileContextOperations => S0004.CodeFileContextOperations.Instance;
+        public static ICodeFileContextOperationSetOperator CodeFileContextOperationSetOperator => S0004.CodeFileContextOperationSetOperator.Instance;
+        public static ICodeFileContextOperator CodeFileContextOperator => S0004.CodeFileContextOperator.Instance;
         public static ICodeFileOperator CodeFileOperator => S0004.CodeFileOperator.Instance;
         public static ICodeFilePaths CodeFilePaths => S0004.CodeFilePaths.Instance;
         public static ICompilationUnitContextOperations CompilationUnitContextOperations => S0004.CompilationUnitContextOperations.Instance;
@@ -21,6 +22,7 @@ namespace D8S.S0004
         public static ICompilationUnits CompilationUnits => S0004.CompilationUnits.Instance;
         public static R5T.L0066.IContextOperations ContextOperations => R5T.L0066.ContextOperations.Instance;
         public static R5T.L0066.IContextOperator ContextOperator => R5T.L0066.ContextOperator.Instance;
+        public static IDocumentationCommentContextOperations DocumentationCommentContextOperations => S0004.DocumentationCommentContextOperations.Instance;
         public static IExperiments Experiments => S0004.Experiments.Instance;
         public static IExpressions Expressions => S0004.Expressions.Instance;
         public static R5T.L0073.IExpressionStatements ExpressionStatements => R5T.L0073.ExpressionStatements.Instance;
@@ -54,16 +56,21 @@ namespace D8S.S0004
         public static R5T.L0073.F001.ISyntaxIndentationOperator SyntaxIndentationOperator => R5T.L0073.F001.SyntaxIndentationOperator.Instance;
         public static R5T.L0073.F001.ISyntaxNodeOperator SyntaxNodeOperator => R5T.L0073.F001.SyntaxNodeOperator.Instance;
         public static R5T.L0073.F001.Utilities.ISyntaxNodeOperator SyntaxNodeOperator_Utilities => R5T.L0073.F001.Utilities.SyntaxNodeOperator.Instance;
+        public static R5T.L0073.F001.ISyntaxNodes SyntaxNodes => R5T.L0073.F001.SyntaxNodes.Instance;
         public static ISyntaxOperator SyntaxOperator => S0004.SyntaxOperator.Instance;
         public static ISyntaxParser SyntaxParser => S0004.SyntaxParser.Instance;
         public static R5T.L0073.F001.ISyntaxTokenListOperator SyntaxTokenListOperator => R5T.L0073.F001.SyntaxTokenListOperator.Instance;
         public static R5T.L0073.F001.ISyntaxTokenOperator SyntaxTokenOperator => R5T.L0073.F001.SyntaxTokenOperator.Instance;
+        public static R5T.L0073.F001.ISyntaxTokenOperations SyntaxTokenOperations => R5T.L0073.F001.SyntaxTokenOperations.Instance;
         public static R5T.L0073.F001.ISyntaxTokens SyntaxTokens => R5T.L0073.F001.SyntaxTokens.Instance;
         public static R5T.L0073.F001.ISyntaxTriviaOperator SyntaxTriviaOperator => R5T.L0073.F001.SyntaxTriviaOperator.Instance;
+        public static R5T.L0073.F001.ISyntaxTriviaOperations SyntaxTriviaOperations => R5T.L0073.F001.SyntaxTriviaOperations.Instance;
         public static R5T.L0073.F001.ISyntaxTriviaLists SyntaxTriviaLists => R5T.L0073.F001.SyntaxTriviaLists.Instance;
+        public static R5T.L0073.F001.ISyntaxTrivias SyntaxTrivias => R5T.L0073.F001.SyntaxTrivias.Instance;
         public static R5T.L0066.Content.IStrings Strings_Content => R5T.L0066.Content.Strings.Instance;
         public static R5T.L0073.F001.ITypes Types => R5T.L0073.F001.Types.Instance;
         public static R5T.L0073.Z001.IUsingDirectives UsingDirectives => R5T.L0073.Z001.UsingDirectives.Instance;
         public static IVariableDeclarations VariableDeclarations => S0004.VariableDeclarations.Instance;
+        public static R5T.L0073.F001.IXmlDocumentationCommentElementNames XmlDocumentationCommentElementNames => R5T.L0073.F001.XmlDocumentationCommentElementNames.Instance;
     }
 }

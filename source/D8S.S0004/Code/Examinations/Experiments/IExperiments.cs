@@ -19,6 +19,156 @@ namespace D8S.S0004
     [ExperimentsMarker]
     public partial interface IExperiments : IExperimentsMarker
     {
+        public async Task Write_DocumentationComment_UsingContextOperations()
+        {
+            /// Inputs.
+            var codeFilePath =
+                Instances.FilePaths.Sample_CSharpFilePath.Value
+                ;
+            var summaryNodeContentText =
+                "Sample project description."
+                ;
+            var indentation =
+                Instances.SyntaxTrivias.Whitespace_Tab
+                ;
+
+
+            /// Run.
+            await Instances.CodeFileContextOperator.In_SyntaxNodeCodeFileContext<DocumentationCommentTriviaSyntax>(
+                codeFilePath,
+                out _,
+                Instances.DocumentationCommentContextOperations.Set_DocumentationComment_New<SyntaxNodeCodeFileContext<DocumentationCommentTriviaSyntax>>(
+                    out _
+                ),
+                Instances.DocumentationCommentContextOperations.Add_SummaryElement<SyntaxNodeCodeFileContext<DocumentationCommentTriviaSyntax>>(
+                    summaryNodeContentText
+                ),
+                Instances.CodeFileContextOperations.Write_SyntaxNode_ToFilePath<SyntaxNodeCodeFileContext<DocumentationCommentTriviaSyntax>, DocumentationCommentTriviaSyntax>(
+                    out _
+                )
+            );
+
+            Instances.NotepadPlusPlusOperator.Open(codeFilePath);
+        }
+
+        public async Task Indent_DocumentationComment()
+        {
+            /// Inputs.
+            var codeFilePath =
+                Instances.FilePaths.Sample_CSharpFilePath.Value
+                ;
+            var summaryNodeContentText =
+                "Sample project description."
+                ;
+            var indentation =
+                Instances.SyntaxTrivias.Whitespace_Tab
+                ;
+
+
+            /// Run.
+            await Instances.Operator.In_OutputToSampleCodeFileContext(() =>
+            {
+                var output =
+                    Instances.SyntaxGenerator.DocumentationComment(
+                        summaryNodeContentText
+                    )
+                    ;
+
+                //// Find the parent token for each documentation comment exterior trivia,
+                //// then prepend the indentation to the leading trivia of the token
+                //// (so the indentation appears before the documentation comment exterior trivia).
+                //var documentationCommentExteriorTrivias = Instances.SyntaxNodeOperator.Get_DescendantTrivias(output)
+                //    .Where(Instances.SyntaxTriviaOperations.Is_Kind(SyntaxKind.DocumentationCommentExteriorTrivia))
+                //    .Now();
+
+                ////output = Instances.SyntaxNodeOperator.Replace_Trivias_Better(
+                ////    output,
+                ////    documentationCommentExteriorTrivias
+                ////        .Select(trivia =>
+                ////        {
+                ////            var newTrivia = Instances.SyntaxTriviaOperator.New(
+                ////                trivia.Kind(),
+                ////                indentation.ToString() + trivia.ToString());
+
+                ////            return (trivia, newTrivia);
+                ////        })
+                ////    );
+
+                //var parentTokens = documentationCommentExteriorTrivias
+                //    .Select(Instances.SyntaxTriviaOperator.Get_Parent)
+                //    .Now();
+
+                //output = Instances.SyntaxNodeOperator.Replace_Tokens_Better(
+                //    output,
+                //    parentTokens
+                //        .Select(token =>
+                //        {
+                //            var newToken = Instances.SyntaxTokenOperator.Prepend_ToLeadingTrivia(
+                //                token,
+                //                indentation);
+
+                //            return (token, newToken);
+                //        })
+                //    );
+
+                output = Instances.SyntaxIndentationOperator.Indent_DocumentationComments(output);
+
+                return output;
+            });
+        }
+
+        public async Task Create_XmlDocumentationComment()
+        {
+            /// Inputs.
+            var codeFilePath =
+                Instances.FilePaths.Sample_CSharpFilePath.Value
+                ;
+            var summaryNodeContentText =
+                "Sample project description."
+                ;
+
+
+            /// Run.
+            //static SyntaxTrivia Internal()
+
+            await Instances.Operator.In_OutputToSampleCodeFileContext(() =>
+            {
+                var output =
+                    //Instances.SyntaxGenerator.DocumentationCommentExteriorTrivia()
+                    //Instances.SyntaxGenerator.XmlTextLiteralNewLine()
+                    //Instances.SyntaxTokens.XmlDocumentationCommentLeadingSpace
+                    //Instances.SyntaxNodes.XmlDocumentationCommentLineLeadingSpace
+                    //Instances.SyntaxGenerator.XmlElementEndTag(
+                    //    Instances.SyntaxGenerator.XmlName(Instances.XmlDocumentationCommentElementNames.Summary)
+                    //)
+                    //Instances.SyntaxGenerator.XmlElementStartTag(Instances.XmlDocumentationCommentElementNames.Summary)
+                    //Instances.SyntaxGenerator.XmlDocumentationCommentLine(Instances.Strings.Empty)
+                    //Instances.SyntaxGenerator.XmlElement(
+                    //    Instances.XmlDocumentationCommentElementNames.Summary,
+                    //    Instances.SyntaxGenerator.XmlDocumentationCommentNewLine(summaryNodeContentText)
+                    //)
+                    //Instances.SyntaxGenerator.SingleLineDocumentationCommentTrivia(
+                    //    //// Note: not needed! SyntaxFactory add the initial new line itself!
+                    //    //Instances.SyntaxNodes.XmlDocumentationCommentLeadingSpace,
+                    //    Instances.SyntaxGenerator.XmlElement(
+                    //        Instances.XmlDocumentationCommentElementNames.Summary,
+                    //        Instances.SyntaxGenerator.XmlDocumentationCommentNewLine(summaryNodeContentText)
+                    //    )
+                    //)
+                    //Instances.SyntaxGenerator.DocumentationComment(
+                    //    Instances.SyntaxGenerator.Summary_XmlDocumentationElement(
+                    //        summaryNodeContentText
+                    //    )
+                    //)
+                    Instances.SyntaxGenerator.DocumentationComment(
+                        summaryNodeContentText
+                    )
+                    ;
+
+                return output;
+            });
+        }
+
         /// <summary>
         /// Using the new context operation sets, use context operations to build a program file.
         /// </summary>
